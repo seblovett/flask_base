@@ -1,0 +1,35 @@
+
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <h1>Welcome {{ current_user.username }}</h1>
+        <h3>This is the members-only page.</h3>
+
+            
+           <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">username</th>
+                <th scope="col">Active</th>
+                <th scope="col">is_admin</th>
+                <th scope="col">Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for u in us %}
+                    
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{{ u['username'] }}</td>
+                      <td>{{ u['active']}}</td>
+                      <td>{{ u['is_admin']}}</td>
+                      <td><a href="./edit/{{u['username']}}">Edit</a></td>
+                    </tr>
+           {% endfor %}
+           
+            </tbody>
+          </table>
+    </div>
+{% endblock %}
+
